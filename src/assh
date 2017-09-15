@@ -1,0 +1,27 @@
+EC2=`aws ec2 describe-instances \
+  --output text\
+  --query 'Reservations[].Instances[].[Tags[?Key==\`Name\`].Value | [0], NetworkInterfaces[].PrivateIpAddresses[].PrivateDnsName | [0]]'
+`
+
+if [ "$1" = "" ]; then
+    echo "AdTech EC2 Instances:"
+    echo "$EC2"
+    exit 1
+fi
+
+
+MATCH_EC2=`echo "$EC2" | grep $1`
+MATCH_NUM=`echo "$MATCH_EC2" | wc -l`
+
+if [ $MATCH_NUM == "0" ]; then
+    echo "ERROR: not match for $1"
+    exit 1
+fi
+if [ $MATCH_NUM != "1" ]; then
+    echo "ERROR: not uniq for $1"
+    echo "$MATCH_EC2" | grep $1
+    exit 1
+fi
+if [ $MATCH_NUM == "1" ]; then
+    ssh `echo "$MATCH_EC2" | grep $1 | awk '{ print $2 }'`
+fi
