@@ -4,7 +4,7 @@ EC2=`aws ec2 describe-instances \
 `
 
 if [ "$1" = "" ]; then
-    echo "AdTech EC2 Instances:"
+    echo "EC2 Instances:"
     echo "$EC2"
     exit 1
 fi
