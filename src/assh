@@ -1,4 +1,5 @@
 EC2=`aws ec2 describe-instances \
+  --profile assh\
   --output text\
   --query 'Reservations[].Instances[].[Tags[?Key==\`Name\`].Value | [0], NetworkInterfaces[].PrivateIpAddresses[].PrivateDnsName | [0]]'
 `
