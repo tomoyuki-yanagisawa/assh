@@ -11,6 +11,20 @@ $ ./install.sh
 
 This program copied into `/usr/local/bin`
 
+# How to setup
+
+This program use awscli profile named "assh". So, You should setup awscli.assh profile.
+
+To setup awscli profile for `assh` command, type following command;
+
+```
+$ aws configure --profile assh
+AWS Access Key ID [****************NNWA]:
+AWS Secret Access Key [****************pJO6]:
+Default region name [ap-northeast-1]:
+Default output format [text]:
+```
+
 # How to use
 
 ## list your ec2 instances
