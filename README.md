@@ -1,6 +1,16 @@
 # assh
 This is a ssh command wrapper to access to AWS EC2 Instance by Tag Name
 
+# How to install
+
+You can install by fllowing command:
+
+```
+$ ./install.sh
+```
+
+This program copied into `/usr/local/bin`
+
 # How to use
 
 ## list your ec2 instances
