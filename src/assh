@@ -14,7 +14,7 @@ fi
 MATCH_EC2=`echo "$EC2" | grep $1`
 MATCH_NUM=`echo "$MATCH_EC2" | wc -l`
 
-if [ $MATCH_NUM == "0" ]; then
+if [ "$MATCH_EC2" = "" ]; then
     echo "ERROR: not match for $1"
     exit 1
 fi
