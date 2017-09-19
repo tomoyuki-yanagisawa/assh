@@ -32,7 +32,7 @@ if [ $MATCH_NUM != "1" ]; then
 fi
 
 if [ $MATCH_NUM == "1" ]; then
-    if [ $SSHUSER = "" ]; then
+    if [ "$SSHUSER" = "" ]; then
       ssh `echo "$MATCH_EC2" | grep $HOST | awk '{ print $2 }'`
     else
       ssh $SSHUSER@`echo "$MATCH_EC2" | grep $HOST | awk '{ print $2 }'`
